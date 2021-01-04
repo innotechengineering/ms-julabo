@@ -24,18 +24,18 @@ The start/stop/set_working_temp `write` commands must be sent to the unit after 
 #### Status Messages
 The Julabo documentation is not comprehensive.  Below is an incomplete table defining the various status states that were discovered by limited testing.  Status is read from the unit using the `read_status()` method.    
 
-00 MANUAL STOP
-01 MANUAL START
-02 REMOTE STOP
-03 REMOTE START
--08 INVALID COMMAND
--09 COMMAND NOT ALLOWED IN CURRENT OPERATING MODE
--10 VALUE TOO SMALL
--11 VALUE TOO LARGE
+00 MANUAL STOP  
+01 MANUAL START  
+02 REMOTE STOP  
+03 REMOTE START  
+-08 INVALID COMMAND  
+-09 COMMAND NOT ALLOWED IN CURRENT OPERATING MODE  
+-10 VALUE TOO SMALL  
+-11 VALUE TOO LARGE  
 
 If a status message begins with a `-`, it indicates an error.  
   
-For status 00,01,02,03 - the "manual" and "remote" indicate the control mode that the unit is in.  Additionally, the "start" and "stop" indicate if the unit is running or not running (which can also be queried by using the `read_circulator_status()` method.  
+For status 00,01,02,03 - the "manual" and "remote" indicate the control mode that the unit is currently in.  Additionally, the "start" and "stop" indicate if the unit is running or not running (which can also be queried by using the `read_circulator_status()` method.  
 
 If status -09 is returned, the command is not allowed in the current operating mode.  Use the `remote_control()` and `local_control()` methods to toggle the operating mode appropriately.  
 
